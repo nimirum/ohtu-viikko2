@@ -46,7 +46,7 @@ scenario "user can not login with incorrect password", {
     }
     
     then 'user will not be logged in to system', {
-    	driver.getPageSource().contains("wrong username or password")).shouldBe true
+    	driver.getPageSource().contains("wrong username or password").shouldBe true
 	}
 }
 
@@ -66,7 +66,7 @@ scenario "nonexistent user can not login to system", {
         element.submit();
     }
     then 'user will not be logged in to system', {
-    	driver.getPageSource().contains("wrong username or password")).shouldBe true
+    	driver.getPageSource().contains("wrong username or password").shouldBe true
 	}
 }
 
