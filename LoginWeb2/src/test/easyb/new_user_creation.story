@@ -170,10 +170,29 @@ scenario "can not login with account that is not succesfully created", {
     }
 
     when 'a invalid username/password are entered', {
+    	element = driver.findElement(By.name("username"));
+        element.sendKeys("panuulalal");
+        element = driver.findElement(By.name("password"));
+        element.sendKeys("k");
+        element = driver.findElement(By.name("passwordConfirmation"));
+        element.sendKeys("k");
+        element = driver.findElement(By.name("add"));
+        element.submit();
+        
+        element = driver.findElement(By.linkText("back to home"));
+        element.click();
+        element = driver.findElement(By.linkText("login"));
+        element.click();
 
+    	element = driver.findElement(By.name("username"));
+        element.sendKeys("panuulalal");
+        element = driver.findElement(By.name("password"));
+        element.sendKeys("k");       
+        element = driver.findElement(By.name("login"));
+        element.click();
     }
 
     then  'new credentials do not allow logging in to system',  {
-    
+        driver.getPageSource().contains("wrong username or password").shouldBe true
     }
 }
