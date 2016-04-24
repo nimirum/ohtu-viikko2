@@ -1,7 +1,6 @@
 package ohtu.intjoukkosovellus;
 
 import java.util.Arrays;
-import java.util.List;
 
 public class IntJoukko {
 
@@ -9,7 +8,7 @@ public class IntJoukko {
             OLETUSKASVATUS = 5;  // luotava uusi taulukko on 
     // näin paljon isompi kuin vanha
     private int kasvatuskoko;     // Uusi taulukko on tämän verran vanhaa suurempi.
-    private int[] ljono;      // Joukon luvut säilytetään taulukon alkupäässä. 
+    private int[] numerot;      // Joukon luvut säilytetään taulukon alkupäässä. 
     private int alkioidenLkm;    // Tyhjässä joukossa alkioiden_määrä on nolla. 
 
     public IntJoukko() {
@@ -27,9 +26,9 @@ public class IntJoukko {
         if (kasvatuskoko < 0) {
             throw new IndexOutOfBoundsException("Negatiivinen kasvatuskoko");//heitin vaan jotain :D
         }
-        ljono = new int[kapasiteetti];
-        for (int i = 0; i < ljono.length; i++) {
-            ljono[i] = 0;
+        numerot = new int[kapasiteetti];
+        for (int i = 0; i < numerot.length; i++) {
+            numerot[i] = 0;
         }
         alkioidenLkm = 0;
         this.kasvatuskoko = kasvatuskoko;
@@ -37,14 +36,14 @@ public class IntJoukko {
 
     public boolean lisaa(int luku) {
         if (alkioidenLkm == 0) {
-            ljono[0] = luku;
+            numerot[0] = luku;
             alkioidenLkm++;
             return true;
         } else if (!kuuluu(luku)) {
-            ljono[alkioidenLkm] = luku;
+            numerot[alkioidenLkm] = luku;
             alkioidenLkm++;
-            if (alkioidenLkm % ljono.length == 0) {
-                ljono = Arrays.copyOf(ljono, alkioidenLkm + kasvatuskoko);
+            if (alkioidenLkm % numerot.length == 0) {
+                numerot = Arrays.copyOf(numerot, alkioidenLkm + kasvatuskoko);
             }
             return true;
         }
@@ -53,7 +52,7 @@ public class IntJoukko {
 
     public boolean kuuluu(int luku) {
         for (int i = 0; alkioidenLkm >= i; i++) {
-            if (luku == ljono[i]) {
+            if (luku == numerot[i]) {
                 return true;
             }
         }
@@ -64,9 +63,9 @@ public class IntJoukko {
         int kohta = haePoistettavanIndeksi(luku);
         if (kohta != -1) {
             for (int j = kohta; j < alkioidenLkm - 1; j++) {
-                int apu = ljono[j];
-                ljono[j] = ljono[j + 1];
-                ljono[j + 1] = apu;
+                int apu = numerot[j];
+                numerot[j] = numerot[j + 1];
+                numerot[j + 1] = apu;
             }
             alkioidenLkm--;
             return true;
@@ -77,9 +76,9 @@ public class IntJoukko {
     private int haePoistettavanIndeksi(int luku) {
         int kohta = -1;
         for (int i = 0; i < alkioidenLkm; i++) {
-            if (luku == ljono[i]) {
+            if (luku == numerot[i]) {
                 kohta = i; //siis luku löytyy tuosta kohdasta :D
-                ljono[kohta] = 0;
+                numerot[kohta] = 0;
                 break;
             }
         }
@@ -96,14 +95,14 @@ public class IntJoukko {
             case 0:
                 return "{}";
             case 1:
-                return "{" + ljono[0] + "}";
+                return "{" + numerot[0] + "}";
             default:
                 String tuotos = "{";
                 for (int i = 0; i < alkioidenLkm - 1; i++) {
-                    tuotos += ljono[i];
+                    tuotos += numerot[i];
                     tuotos += ", ";
                 }
-                tuotos += ljono[alkioidenLkm - 1];
+                tuotos += numerot[alkioidenLkm - 1];
                 tuotos += "}";
                 return tuotos;
         }
@@ -111,7 +110,7 @@ public class IntJoukko {
 
     public int[] toIntArray() {
         int[] taulu = new int[alkioidenLkm];
-        System.arraycopy(ljono, 0, taulu, 0, taulu.length);
+        System.arraycopy(numerot, 0, taulu, 0, taulu.length);
         return taulu;
     }
 
