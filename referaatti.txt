@@ -1,0 +1,20 @@
+Kalle Ilveksen kandidaattitutkielmassa käsitellään ketterän ohjelmistokehityksenmenetelmiä
+Scrumia ja Kanbania.
+
+Niitä yhdistää Lean-ajattelutavan mukainen empiirisyyden ja optimisaation
+periaate, joka mahdollistaa Scrumin ja Kanbanin periaatteiden yhdistelemisen
+projektin tarpeisiin sopivan prosessin muodostamiseksi. Niiden yhdistelmää kutsutaan
+nimellä Scrumban.
+
+Vaatimuksien muuttuessa nopeasti Scrumin aikarajoitettujen iteraatioiden
+noudattaminen tuottaa hankaluuksia nopeasti muuttuviin vaatimuksiin.
+Kanbanissa voi olla ongelmia ryhmän sisäisen kommunikaation vähäisyyden
+ja palautesyklin kanssa, jonka puuttuminen voi johtaa kehitysryhmän tehottomuuteen.
+Niihin pystyy vastaamaan Scrumbanin mukaisella jatkuvalla suunnittelulla.
+Kabanin ongelmia pystyy korjaamaan lisäämään Scrumin mukaiset päivätapaamiset
+ja retrospektiivit. Kanbanin hyvänä puolena nousee esille työnkulun visualisointi
+kanban-taulun avulla.
+
+Scrum ja Kanban eivät ole valmiiksi määriteltyjä prosesseja, vaan työkaluja
+prosessin kehittämiselle. Jokaisen projektin pitää itse löytää sopiva
+tapa käyttää näitä työkaluja.

@@ -2,8 +2,6 @@ package ohtu.kivipaperisakset;
 
 import java.util.Scanner;
 
-import java.util.Scanner;
-
 // Kivi-Paperi-Sakset, jossa voidaan valita pelataanko vastustajaa
 // vastaan vai ei
 public class KPSParempiTekoaly {
@@ -37,9 +35,7 @@ public class KPSParempiTekoaly {
 
         }
 
-        System.out.println();
-        System.out.println("Kiitos!");
-        System.out.println(tuomari);
+
     }
 
     private static boolean onkoOkSiirto(String siirto) {

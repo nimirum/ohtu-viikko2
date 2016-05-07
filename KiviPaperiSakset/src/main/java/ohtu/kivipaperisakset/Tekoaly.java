@@ -1,6 +1,6 @@
 package ohtu.kivipaperisakset;
 
-public class Tekoaly {
+public class Tekoaly implements Pelaaja {
 
     int siirto;
 
@@ -8,20 +8,27 @@ public class Tekoaly {
         siirto = 0;
     }
 
+    @Override
     public String annaSiirto() {
         siirto++;
         siirto = siirto % 3;
+        String siirtoString;
 
-        if (siirto == 0) {
-            return "k";
-        } else if (siirto == 1) {
-            return "p";
-        } else {
-            return "s";
+        switch (siirto) {
+            case 0:
+                siirtoString = "k";
+            case 1:
+                siirtoString = "p";
+            default:
+                siirtoString = "s";
         }
+        
+        System.out.println("Tietokone valitsi: " + siirtoString);
+        return siirtoString;
     }
 
-    void asetaSiirto(String ekanSiirto) {
+    @Override
+    public void asetaSiirto(String ekanSiirto) {
         // ei tehdä mitään 
     }
 }
